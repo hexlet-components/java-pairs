@@ -1,2 +1,2 @@
 test:
-	gradle test --info
+	./gradlew test --info
