@@ -6,12 +6,12 @@ import java.util.function.*;
 
 class PairsTest {
     @Test void testCons() {
-        var pair = Pairs.cons(1, 4);
-        assertEquals(1, Pairs.car(pair));
-        assertEquals(4, Pairs.cdr(pair));
+        Pair pair = Pair.cons(1, 4);
+        assertEquals(1, Pair.car(pair));
+        assertEquals(4, Pair.cdr(pair));
 
-        var pair2 = Pairs.cons("one", "four");
-        assertEquals("one", Pairs.car(pair2));
-        assertEquals("four", Pairs.cdr(pair2));
+        Pair pair2 = Pair.cons("one", "four");
+        assertEquals("one", Pair.car(pair2));
+        assertEquals("four", Pair.cdr(pair2));
     }
 }
