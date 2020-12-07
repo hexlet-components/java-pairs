@@ -1,4 +1,3 @@
-
 package io.hexlet.pairs;
 
 import java.util.function.Function;

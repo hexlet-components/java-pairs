@@ -1,2 +1,2 @@
 test:
-	./gradlew test --info
+	mvn test -q -o
