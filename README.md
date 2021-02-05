@@ -1,7 +1,7 @@
 # java-pairs
 
-![publish](https://github.com/ShafigullinIK/java-pairs/workflows/publish/badge.svg)
-![package](https://github.com/ShafigullinIK/java-pairs/workflows/package/badge.svg)
+[![Java CI](https://github.com/hexlet-components/java-pairs/workflows/Java%20CI/badge.svg)](https://github.com/hexlet-components/java-pairs/actions)
+[![Package](https://jitpack.io/v/hexlet-components/java-pairs.svg)](https://jitpack.io/#hexlet-components/java-pairs)
 
 ## Functions for working with Pairs
 
@@ -26,7 +26,6 @@ var isPair = isPair(pair); // isPair == true;
 var result = pairToString(pair); // pair = "(1, 2)";
 ```
 
-[![Hexlet Ltd. logo](https://raw.githubusercontent.com/Hexlet/hexletguides.github.io/master/images/hexlet_logo128.png)](https://ru.hexlet.io/pages/about?utm_source=github&utm_medium=link&utm_campaign=php-eloquent-blog)
+[![Hexlet Ltd. logo](https://raw.githubusercontent.com/Hexlet/hexletguides.github.io/master/images/hexlet_logo128.png)](https://ru.hexlet.io/pages/about?utm_source=github&utm_medium=link&utm_campaign=java-pairs)
 
-This repository is created and maintained by the team and the community of Hexlet, an educational project. [Read more about Hexlet (in Russian)](https://ru.hexlet.io/pages/about?utm_source=github&utm_medium=link&utm_campaign=php-eloquent-blog).
-
+This repository is created and maintained by the team and the community of Hexlet, an educational project. [Read more about Hexlet (in Russian)](https://ru.hexlet.io/pages/about?utm_source=github&utm_medium=link&utm_campaign=java-pairs).
