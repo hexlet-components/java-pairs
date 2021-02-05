@@ -24,5 +24,4 @@ public interface Pair<L, R, T>
   static boolean isPair(Object o) {
     return o instanceof Pair;
   }
-
 }
