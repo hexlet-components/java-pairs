@@ -3,4 +3,6 @@ build
 
 .idea
 JavaPairs.iml
-target
+
+# Ignore Gradle project-specific cache directory
+.gradle

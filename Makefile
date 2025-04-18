@@ -1,14 +1,11 @@
 test:
-	./mvnw surefire:test
+	./gradlew test
 
 lint:
-	./mvnw checkstyle:check
+	./gradlew checkstyleMain checkstyleTest
 
-update:
-	./mvnw versions:display-property-updates versions:update-properties
+report:
+	./gradlew jacocoTestReport
 
-build:
-	./mvnw clean package
-
-install:
-	./mvnw clean install
+check-deps:
+	./gradlew dependencyUpdates -Drevision=release
