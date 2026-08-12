@@ -2,8 +2,7 @@ package io.hexlet.pairs;
 
 import java.util.function.Function;
 
-public interface Pair<L, R, T>
-       extends Function<Function<L, Function<R, T>>, T> {
+public interface Pair<L, R, T> extends Function<Function<L, Function<R, T>>, T> {
 
     static <L, R, T> Pair<L, R, T> cons(L left, R right) {
         return f -> f.apply(left).apply(right);
