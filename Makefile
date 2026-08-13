@@ -2,7 +2,10 @@ test:
 	./gradlew test
 
 lint:
-	./gradlew checkstyleMain checkstyleTest
+	./gradlew spotlessCheck
+
+lint-fix:
+	./gradlew spotlessApply
 
 report:
 	./gradlew jacocoTestReport
