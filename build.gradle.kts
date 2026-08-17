@@ -4,6 +4,7 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent
 plugins {
     java
     jacoco
+    `maven-publish`
     alias(libs.plugins.spotless)
     alias(libs.plugins.versions)
     alias(libs.plugins.version.catalog.update)
@@ -11,7 +12,11 @@ plugins {
 
 group = "io.hexlet"
 
-version = "1.0-SNAPSHOT"
+// Версию задаёт релизный workflow из тега: `-PreleaseVersion=1.1.0`. Локально и
+// в обычном CI остаётся SNAPSHOT, чтобы случайная сборка не выглядела релизной.
+// Свойство своё, а не встроенное `version`: присваивание в скрипте перебило бы
+// `-Pversion=…` из командной строки.
+version = providers.gradleProperty("releaseVersion").getOrElse("1.0-SNAPSHOT")
 
 java {
     toolchain { languageVersion = JavaLanguageVersion.of(25) }
@@ -36,6 +41,24 @@ tasks.test {
 }
 
 tasks.jacocoTestReport { reports { xml.required.set(true) } }
+
+// Библиотека едет в GitHub Packages: её тянут упражнения курса
+// course-java-compound-data как io.hexlet:java-pairs.
+publishing {
+    publications {
+        create<MavenPublication>("maven") { from(components["java"]) }
+    }
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/hexlet-components/java-pairs")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+}
 
 spotless {
     java {

@@ -1,0 +1,31 @@
+name: Release
+
+# Публикация в GitHub Packages по тегу. Версия артефакта берётся из имени тега
+# без ведущей v: v1.1.0 даёт io.hexlet:java-pairs:1.1.0.
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v7
+      - name: Set up openJDK 25
+        uses: actions/setup-java@v5.6.0
+        with:
+          java-version: '25'
+          distribution: 'temurin'
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v6
+      - name: Publish to GitHub Packages
+        run: ./gradlew publish -PreleaseVersion="${GITHUB_REF_NAME#v}"
+        env:
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
