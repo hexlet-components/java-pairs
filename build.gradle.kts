@@ -19,7 +19,7 @@ group = "io.hexlet"
 version = providers.gradleProperty("releaseVersion").getOrElse("1.0-SNAPSHOT")
 
 java {
-    toolchain { languageVersion = JavaLanguageVersion.of(25) }
+    toolchain { languageVersion = JavaLanguageVersion.of(27) }
 }
 
 repositories { mavenCentral() }
@@ -39,6 +39,11 @@ tasks.test {
         showStandardStreams = true
     }
 }
+
+
+// Версия JaCoCo задана явно: встроенная в Gradle отстаёт от JDK, и на новой
+// Java агент падает с IllegalClassFormatException.
+jacoco { toolVersion = libs.versions.jacoco.get() }
 
 tasks.jacocoTestReport { reports { xml.required.set(true) } }
 
